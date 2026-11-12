@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMW G 310R | Bike Website</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #111;
+    color: white;
+}
+
+.container {
+    min-height: 100vh;
+    width: 100%;
+    background-image: url("bmw1.png");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    transition: background-image 0.4s ease;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(0,0,0,0.85),
+        rgba(0,0,0,0.35),
+        transparent
+    );
+}
+
+nav {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 7%;
+}
+
+.logo {
+    width: 75px;
+    height: auto;
+}
+
+.btn {
+    text-decoration: none;
+    color: white;
+    border: 2px solid white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: white;
+    color: black;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    padding: 80px 8%;
+    max-width: 650px;
+}
+
+.content h2 {
+    font-size: 28px;
+    letter-spacing: 5px;
+}
+
+.content h1 {
+    font-size: clamp(55px, 9vw, 100px);
+    margin: 10px 0;
+    font-weight: 800;
+}
+
+.content p {
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 450px;
+    color: #eee;
+}
+
+.content h3 {
+    margin-top: 35px;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.colour-select {
+    display: flex;
+    gap: 15px;
+}
+
+.colour-select div {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid white;
+    transition: 0.3s;
+}
+
+.colour-select div:hover {
+    transform: scale(1.2);
+}
+
+#red {
+    background: #e60000;
+}
+
+#blue {
+    background: #0066cc;
+}
+
+#black {
+    background: #222;
+}
+
+/* DIGITAL CLOCK */
+
+.clock {
+    position: absolute;
+    z-index: 3;
+    right: 7%;
+    bottom: 45px;
+    text-align: right;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(10px);
+    padding: 18px 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.clock h2 {
+    font-size: clamp(25px, 4vw, 38px);
+    letter-spacing: 3px;
+    color: #fff;
+}
+
+.clock p {
+    font-size: 14px;
+    margin-top: 8px;
+    color: #ddd;
+    letter-spacing: 1px;
+}
+
+/* TABLET */
+
+@media(max-width: 768px) {
+    .container {
+        background-position: 60% center;
+    }
+
+    .content {
+        padding: 70px 6%;
+    }
+
+    .content p {
+        max-width: 380px;
+    }
+
+    .clock {
+        right: 6%;
+        bottom: 25px;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width: 480px) {
+    .container {
+        min-height: 100vh;
+        background-position: 58% center;
+    }
+
+    .container::before {
+        background: linear-gradient(
+            180deg,
+            rgba(0,0,0,0.75),
+            rgba(0,0,0,0.35),
+            rgba(0,0,0,0.75)
+        );
+    }
+
+    nav {
+        padding: 20px;
+    }
+
+    .logo {
+        width: 55px;
+    }
+
+    .btn {
+        padding: 9px 17px;
+        font-size: 13px;
+    }
+
+    .content {
+        padding: 65px 25px 180px;
+    }
+
+    .content h2 {
+        font-size: 19px;
+        letter-spacing: 3px;
+    }
+
+    .content h1 {
+        font-size: 58px;
+    }
+
+    .content p {
+        font-size: 13px;
+        line-height: 1.7;
+        max-width: 300px;
+    }
+
+    .content h3 {
+        font-size: 17px;
+        margin-top: 25px;
+    }
+
+    .clock {
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        text-align: center;
+    }
+
+    .clock h2 {
+        font-size: 28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="bike">
+
+    <nav>
+        <img src="logo.png" class="logo" alt="BMW Logo">
+        <a href="mailto:info@example.com?subject=BMW%20Test%20Drive"
+           class="btn">Test Drive</a>
+    </nav>
+
+    <div class="content">
+
+        <h2>THE BMW</h2>
+        <h1>G 310R</h1>
+
+        <p>
+            The strength of the G310R is in its lightness
+            and agility. The bike not only delivers fun
+            in the big city, but also when you are
+            redefining the city limits and changing corners.
+        </p>
+
+        <h3>Choose your Color</h3>
+
+        <div class="colour-select">
+            <div id="red" title="Red"></div>
+            <div id="blue" title="Blue"></div>
+            <div id="black" title="Black"></div>
+        </div>
+
+    </div>
+
+    <!-- DIGITAL CLOCK -->
+
+    <div class="clock">
+        <h2 id="time">00:00:00</h2>
+        <p id="date">Loading date...</p>
+        <p>INDIAN STANDARD TIME (IST)</p>
+    </div>
+
+</div>
+
+<script>
+
+// BIKE COLOR CHANGE
+
+const bike = document.getElementById("bike");
+
+document.getElementById("red").onclick = function() {
+    bike.style.backgroundImage = "url('bmw1.png')";
+};
+
+document.getElementById("blue").onclick = function() {
+    bike.style.backgroundImage = "url('bmw2.png')";
+};
+
+document.getElementById("black").onclick = function() {
+    bike.style.backgroundImage = "url('bmw3.png')";
+};
+
+
+// DIGITAL CLOCK AND DATE
+
+function updateClock() {
+
+    const now = new Date();
+
+    const time = now.toLocaleTimeString("en-IN", {
+        timeZone: "Asia/Kolkata",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true
+    });
+
+    const date = now.toLocaleDateString("en-IN", {
+        timeZone: "Asia/Kolkata",
+        weekday: "long",
+        day: "2-digit",
+        month: "long",
+        year: "numeric"
+    });
+
+    document.getElementById("time").textContent = time;
+    document.getElementById("date").textContent = date;
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
+</script>
+
+</body>
+</html>
